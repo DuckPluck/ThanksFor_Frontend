@@ -1,0 +1,38 @@
+{
+  "table": [
+    {
+      "id": 2,
+      "stickers": [
+        {
+          "id": 2,
+          "text": "Sample sticker 2",
+          "todos": [
+            {
+              "id": 1,
+              "text": "Sample todo 1",
+              "completed": false
+            },
+            {
+              "id": 2,
+              "text": "Sample todo 2",
+              "completed": false
+            }
+          ],
+          "image": "http://127.0.0.1:8080/media/Ariana_Grande_Grammys_Red_Carpet_2020.png"
+        },
+        {
+          "id": 1,
+          "text": "Sample sticker 1",
+          "todos": [
+            {
+              "id": 1,
+              "text": "Sample todo 1",
+              "completed": false
+            }
+          ],
+          "image": "http://127.0.0.1:8080/media/194987397_1142815772810138_3011566722434931460_n.png"
+        }
+      ]
+    }
+  ]
+}
