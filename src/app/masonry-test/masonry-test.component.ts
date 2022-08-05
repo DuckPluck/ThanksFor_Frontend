@@ -1,14 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { ServerInteractionService, Table } from 'src/app/service/server-interaction.service';
-
+import { ServerInteractionService, Table } from '../service/server-interaction.service';
 
 @Component({
-  selector: 'app-account',
-  templateUrl: './account.component.html',
-  styleUrls: ['./account.component.scss']
+  selector: 'app-masonry-test',
+  templateUrl: './masonry-test.component.html',
+  styleUrls: ['./masonry-test.component.scss']
 })
-export class AccountComponent implements OnInit {
-
+export class MasonryTestComponent implements OnInit {
   table: Table[] = []
   error = ''
   tableId = 0
