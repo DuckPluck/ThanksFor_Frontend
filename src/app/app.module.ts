@@ -8,12 +8,14 @@ import { AccountComponent } from './account/account/account.component';
 import { MasonryTestComponent } from './masonry-test/masonry-test.component';
 import { NgxMasonryModule } from 'ngx-masonry';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MasontyDemoComponent } from './masonty-demo/masonty-demo.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AccountComponent,
-    MasonryTestComponent
+    MasonryTestComponent,
+    MasontyDemoComponent
   ],
   imports: [
     BrowserModule,
