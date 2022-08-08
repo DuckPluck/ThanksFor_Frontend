@@ -27,124 +27,110 @@
       </div>
     </div>
   </section>
-<!-- style="display: flex; justify-content: center" -->
+  <hr />
   <div class="album py-5" style="background-color: #fcfcfc">
     <div class="container">
-      <div class="row">
-        <!-- сука масонри какого-то хуя криво считает координаты, не по центру -->
-
-        <!-- ------------------------------------------------------------------------------ card iteration starts -------------------------------------------- -->
-        <ngx-masonry [options]="{ horizontalOrder: true, itemSelector: '.ngxMasonryItem', 'percentPosition': true }"  >  <!-- style="display: flex; justify-content: center; gap: 2rem" -->
-          <div 
-            ngxMasonryItem
-            class="col-lg-3 col-md-5 col-sm-12 ngxMasonryItem" 
-            *ngFor="let sticker of this.table[this.tableId]?.stickers"
-            style="margin-right: 16px; margin-bottom: 16px;"
-          >
-            <div class="card">
-              <div class="card-body pb-2">
-                <div
-                  class="card-header mb-3 bg-primary"
-                  style="margin: -16px -16px 0 -16px"
-                >
-                  <h5
-                    class="card-title mb-0"
-                    style="padding-top: 4px; padding-bottom: 4px; color: white"
-                  >
-                  {{ sticker.text }}
-                    <!-- нужно сделать динамические обращения вместо статики -->
-                  </h5>
-                </div>
-                <p class="card-text">
-                  This card has supporting text below as a natural lead-in to
-                  additional content.
-                </p>
-              </div>
+      <!-- ------------------------------------------------------------------------------ card iteration starts -------------------------------------------- -->
+      <ngx-masonry [options]="{ horizontalOrder: true, percentPosition: true }">
+        <div
+          ngxMasonryItem
+          class="col-lg-4 col-md-6 col-sm-12"
+          *ngFor="let sticker of this.table[this.tableId]?.stickers"
+          style="padding: 16px"
+        >
+          <div class="card">
+            <div class="card-body pb-2">
               <div
-                class="list-group mx-0 w-auto mb-1 mt-1"
-                style="border-top: none; border-bottom: 0"
+                class="card-header mb-3 bg-primary"
+                style="margin: -16px -16px 0 -16px"
               >
-                <label
-                  class="list-group-item d-flex gap-2"
-                  style="border: none"
+                <h5
+                  class="card-title mb-0"
+                  style="padding-top: 4px; padding-bottom: 4px; color: white"
                 >
-                  <input
-                    class="form-check-input flex-shrink-0"
-                    type="checkbox"
-                    value=""
-                    checked=""
-                  />
-                  <span>
-                    <small class="d-block text-muted"
-                      >With support text underneath to add more detail</small
-                    >
-                  </span>
-                </label>
-                <div class="d-flex justify-content-center">
-                  <hr class="mb-0 mt-0" style="opacity: 0.075; width: 66%" />
-                </div>
-                <label
-                  class="list-group-item d-flex gap-2"
-                  style="border: none"
-                >
-                  <input
-                    class="form-check-input flex-shrink-0"
-                    type="checkbox"
-                    value=""
-                  />
-                  <span>
-                    <small class="d-block">Some other text goes here</small>
-                  </span>
-                </label>
-                <div class="d-flex justify-content-center">
-                  <hr class="mb-0 mt-0" style="opacity: 0.075; width: 66%" />
-                </div>
-                <label
-                  class="list-group-item d-flex gap-2"
-                  style="border: none"
-                >
-                  <input
-                    class="form-check-input flex-shrink-0"
-                    type="checkbox"
-                    value=""
-                  />
-                  <span>
-                    <small class="d-block"
-                      >And we end with another snippet of text</small
-                    >
-                  </span>
-                </label>
-                <div class="d-flex justify-content-center">
-                  <hr class="mb-0 mt-0" style="opacity: 0.075; width: 66%" />
-                </div>
-                <label
-                  class="list-group-item d-flex gap-2"
-                  style="border: none"
-                >
-                  <input
-                    class="form-check-input flex-shrink-0"
-                    type="checkbox"
-                    value=""
-                  />
-                  <span>
-                    <small class="d-block"
-                      >And we end with another snippet of text</small
-                    >
-                  </span>
-                </label>
+                  {{ sticker.text }}
+
+                </h5>
               </div>
-              <p
-                class="card-text pb-2 pe-3"
-                style="align-self: end; opacity: 70%"
-              >
-                <small class="text-muted">Last updated 3 mins ago</small>
+              <p class="card-text">
+                This card has supporting text below as a natural lead-in to
+                additional content.
               </p>
             </div>
+            <div
+              class="list-group mx-0 w-auto mb-1 mt-1"
+              style="border-top: none; border-bottom: 0"
+            >
+                              <!-- нужно сделать checked динамическим нужно сделать текст туду динамическим -->
+              <label class="list-group-item d-flex gap-2" style="border: none">
+                <input
+                  class="form-check-input flex-shrink-0"
+                  type="checkbox"
+                  value=""
+                  checked=""
+                />
+                <span>
+                  <small class="d-block text-muted"
+                    >With support text underneath to add more detail</small
+                  >
+                </span>
+              </label>
+              <div class="d-flex justify-content-center">
+                <hr class="mb-0 mt-0" style="opacity: 0.075; width: 66%" />
+              </div>
+              <label class="list-group-item d-flex gap-2" style="border: none">
+                <input
+                  class="form-check-input flex-shrink-0"
+                  type="checkbox"
+                  value=""
+                />
+                <span>
+                  <small class="d-block">Some other text goes here</small>
+                </span>
+              </label>
+              <div class="d-flex justify-content-center">
+                <hr class="mb-0 mt-0" style="opacity: 0.075; width: 66%" />
+              </div>
+              <label class="list-group-item d-flex gap-2" style="border: none">
+                <input
+                  class="form-check-input flex-shrink-0"
+                  type="checkbox"
+                  value=""
+                />
+                <span>
+                  <small class="d-block"
+                    >And we end with another snippet of text</small
+                  >
+                </span>
+              </label>
+              <div class="d-flex justify-content-center">
+                <hr class="mb-0 mt-0" style="opacity: 0.075; width: 66%" />
+              </div>
+              <label class="list-group-item d-flex gap-2" style="border: none">
+                <input
+                  class="form-check-input flex-shrink-0"
+                  type="checkbox"
+                  value=""
+                />
+                <span>
+                  <small class="d-block"
+                    >And we end with another snippet of text</small
+                  >
+                </span>
+              </label>
+            </div>
+            <p
+              class="card-text pb-2 pe-3"
+              style="align-self: end; opacity: 70%"
+            >
+              <small class="text-muted">Last updated 3 mins ago</small>
+            </p>
           </div>
-        </ngx-masonry>
-        <!-- ------------------------------------------------------------------------------ card iteration ends -------------------------------------------- -->
+        </div>
+      </ngx-masonry>
+      <!-- ------------------------------------------------------------------------------ card iteration ends -------------------------------------------- -->
 
-        <!--         <div class="col-sm-6 col-lg-4 mb-4">
+      <!--         <div class="col-sm-6 col-lg-4 mb-4">
           <div class="card">
             <div class="card-body pb-2">
               <div
@@ -643,7 +629,6 @@
             </p>
           </div>
         </div> -->
-      </div>
     </div>
   </div>
 </main>
