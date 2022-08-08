@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { NgxMasonryOptions, NgxMasonryComponent } from 'ngx-masonry';
 
+
 @Component({
   selector: 'app-masonty-demo',
   templateUrl: 'masonty-demo.component.html',
@@ -14,12 +15,13 @@ export class MasontyDemoComponent implements OnInit {
     gutter: 20,
   };
 
-  @ViewChild(NgxMasonryComponent) masonry: NgxMasonryComponent | undefined;
+  @ViewChild(NgxMasonryComponent)
+  masonry!: NgxMasonryComponent;
 
-  masonryImages = [];
+  masonryImages: [boolean, string][] = [[false, '']];
   limit = 15;
 
-  dummyPictures = [
+  dummyPictures: [boolean, string][] = [
     [false, 'https://source.unsplash.com/433x649/?Uruguay'],
     [false, 'https://source.unsplash.com/530x572/?Jamaica'],            /* нужно решить проблемы с совместимостью */
     [false, 'https://source.unsplash.com/531x430/?Kuwait'],
@@ -123,10 +125,10 @@ export class MasontyDemoComponent implements OnInit {
   ];
 
   ngOnInit() {
-    /* this.masonryImages = this.dummyPictures.slice(0, this.limit); */
+    this.masonryImages = this.dummyPictures.slice(0, this.limit);
   }
 
-/*   showMoreImages() {
+  showMoreImages() {
     this.limit += 15;
     this.masonryImages = this.dummyPictures.slice(0, this.limit);
   }
@@ -148,5 +150,5 @@ export class MasontyDemoComponent implements OnInit {
 
   itemsLoaded() {
     console.log('itemsloaded');
-  } */
+  }
 }

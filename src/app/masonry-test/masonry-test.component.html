@@ -6,25 +6,25 @@
     (click)="testResponse(this.table)"
     >Main call to action</a
   >
-  <div class="row" >
-    <ngx-masonry>
-      <div >
-        <div
-          class="card col-lg-3 col-md-5 col-sm-12 mb-2 ms-2 me-2"
-          ngxMasonryItem
-          *ngFor="let sticker of this.table[this.tableId]?.stickers"
-        >
-          <img src="./assets/img/1.png" alt="" class="card-img-top" />
-          <div class="card-body">
-            <h5 class="card-title">{{ sticker.text }}</h5>
-            <p class="card-text">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia,
-              dolores!
-            </p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
+
+  <ngx-masonry [options]="{ horizontalOrder: true, percentPosition: true }">
+    <div
+      class="col-lg-4 col-md-6 col-sm-12"
+      style="padding: 16px;"
+      ngxMasonryItem
+      *ngFor="let sticker of this.table[this.tableId]?.stickers"
+    >
+      <div class="card">
+        <img src="./assets/img/1.png" alt="" class="card-img-top" />
+        <div class="card-body">
+          <h5 class="card-title">{{ sticker.text }}</h5>
+          <p class="card-text">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia,
+            dolores!
+          </p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>
       </div>
-    </ngx-masonry>
-  </div>
+    </div>
+  </ngx-masonry>
 </div>
