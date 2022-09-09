@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgxMasonryComponent } from 'ngx-masonry';
 import { ServerInteractionService, Table } from 'src/app/service/server-interaction.service';
 
 
@@ -8,7 +9,9 @@ import { ServerInteractionService, Table } from 'src/app/service/server-interact
   styleUrls: ['./account.component.scss']
 })
 export class AccountComponent implements OnInit {
-
+  @ViewChild(NgxMasonryComponent)
+  masonry!: NgxMasonryComponent;
+  
   table: Table[] = []
   error = ''
   tableId = 0
@@ -19,33 +22,44 @@ export class AccountComponent implements OnInit {
     this.fetchTable()
     
   }
-  fetchTable() {
+  fetchTable():void {
     this.serverInteractionService.fetchTable()
-    .subscribe((response: Table[]) => {
-      this.table = response
-    }, (error: { message: string; }) => {
-      this.error = error.message
+        .subscribe((response: Table[]) => {
+          this.table = response
+        }, (error: { message: string; }) => {
+          this.error = error.message
     })
   }
 
 
   testResponse(testVar: any) {
+    console.log('Total tables: ')
     console.log(testVar)
+    console.log(this.tableId + ' = id; Current table: ')
     console.log(testVar[this.tableId].stickers)
     return 0
   }
 
-  nextTable() {
-    this.tableId += 1;
+  nextTable():void {
+    this.tableId += 1
     this.fetchTable()
-    console.log('Current table id: ', this.tableId)
-    return 0
+    setTimeout(() => {               // таймаут это костыль, нужно завязать релоад масонри на хуке подгрузки эл-тов, чтобы не было ошибок верстки при проблемах с сервером
+      this.masonry.reloadItems()
+      this.masonry.layout()
+      console.log('Current table id: ', this.tableId)
+    }, 1)
+
+    
   }
 
-  previousTable() {
+  previousTable(): void {
     this.tableId -= 1;
     this.fetchTable()
-    console.log('Current table id: ', this.tableId)
-    return 0
+    setTimeout(() => {
+      this.masonry.reloadItems()
+      this.masonry.layout()
+      console.log('Current table id: ', this.tableId)
+    }, 1)
+    
   }
 }

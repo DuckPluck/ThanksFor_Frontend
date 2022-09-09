@@ -2,18 +2,14 @@
   <section class="py-5 text-center container">
     <div class="row py-lg-5">
       <div class="col-lg-6 col-md-8 mx-auto">
-        <h1 class="fw-light">Account board example</h1>
-        <p class="lead text-muted">
-          Something short and leading about the account creator, etc. Make it
-          short and sweet, but not too short so folks don’t simply skip over it
-          entirely.
-        </p>
+        <h1 class="fw-light">Account board</h1>
+        <p class="lead text-muted">This is how main page looks.</p>
         <p>
           <a
             href="#"
             class="btn btn-primary my-2 me-5"
             (click)="testResponse(this.table)"
-            >Main call to action</a
+            >testResponse</a
           >
           <span>Table: {{ tableId }}</span
           ><br />
@@ -38,30 +34,39 @@
           *ngFor="let sticker of this.table[this.tableId]?.stickers"
           style="padding: 16px"
         >
+          <!-- Масонри слетает при смене доски, нужно обновлять -->
           <div class="card">
-            <div class="card-body pb-2">
+            <div class="card-body pb-2 ps-0 pe-0">
               <div
-                class="card-header mb-3 bg-primary"
-                style="margin: -16px -16px 0 -16px"
+                class="card-header mb-0 bg-primary d-flex justify-content-between align-items-center"
+                style="margin: -16px 0px 0 -0px"
               >
                 <h5
                   class="card-title mb-0"
                   style="padding-top: 4px; padding-bottom: 4px; color: white"
                 >
                   {{ sticker.text }}
-
                 </h5>
+                  <button
+                    type="button"
+                    class="btn btn-sm btn-outline-white text-light"
+                  >
+                    Edit
+                  </button>
+                
               </div>
-              <p class="card-text">
-                This card has supporting text below as a natural lead-in to
+              <img [src]="sticker.image" class="card-img-bottom" />
+              <!-- <p class="card-text">
+                This card has supporting text below as a natural lead-in to                       // от описания карточки пока отказываемся
                 additional content.
-              </p>
+              </p> -->
             </div>
             <div
-              class="list-group mx-0 w-auto mb-1 mt-1"
+              *ngFor="let todo of sticker.todos"
+              class="list-group mx-0 w-auto mb-0 mt-0"
               style="border-top: none; border-bottom: 0"
             >
-                              <!-- нужно сделать checked динамическим нужно сделать текст туду динамическим -->
+              <!-- нужно сделать checked динамическим и нужно сделать last updated динамическими-->
               <label class="list-group-item d-flex gap-2" style="border: none">
                 <input
                   class="form-check-input flex-shrink-0"
@@ -69,56 +74,20 @@
                   value=""
                   checked=""
                 />
+                <!-- По сути для cheсked в функции нужно следить за инпутом и передавать на сервер изменения -->
                 <span>
-                  <small class="d-block text-muted"
-                    >With support text underneath to add more detail</small
-                  >
+                  <small class="d-block text-muted">{{ todo.text }}</small>
                 </span>
               </label>
               <div class="d-flex justify-content-center">
-                <hr class="mb-0 mt-0" style="opacity: 0.075; width: 66%" />
-              </div>
-              <label class="list-group-item d-flex gap-2" style="border: none">
-                <input
-                  class="form-check-input flex-shrink-0"
-                  type="checkbox"
-                  value=""
+                <hr
+                  *ngIf="todo != sticker.todos[sticker.todos.length - 1]"
+                  class="mb-0 mt-0"
+                  style="opacity: 0.075; width: 66%"
                 />
-                <span>
-                  <small class="d-block">Some other text goes here</small>
-                </span>
-              </label>
-              <div class="d-flex justify-content-center">
-                <hr class="mb-0 mt-0" style="opacity: 0.075; width: 66%" />
               </div>
-              <label class="list-group-item d-flex gap-2" style="border: none">
-                <input
-                  class="form-check-input flex-shrink-0"
-                  type="checkbox"
-                  value=""
-                />
-                <span>
-                  <small class="d-block"
-                    >And we end with another snippet of text</small
-                  >
-                </span>
-              </label>
-              <div class="d-flex justify-content-center">
-                <hr class="mb-0 mt-0" style="opacity: 0.075; width: 66%" />
-              </div>
-              <label class="list-group-item d-flex gap-2" style="border: none">
-                <input
-                  class="form-check-input flex-shrink-0"
-                  type="checkbox"
-                  value=""
-                />
-                <span>
-                  <small class="d-block"
-                    >And we end with another snippet of text</small
-                  >
-                </span>
-              </label>
             </div>
+
             <p
               class="card-text pb-2 pe-3"
               style="align-self: end; opacity: 70%"
@@ -129,506 +98,6 @@
         </div>
       </ngx-masonry>
       <!-- ------------------------------------------------------------------------------ card iteration ends -------------------------------------------- -->
-
-      <!--         <div class="col-sm-6 col-lg-4 mb-4">
-          <div class="card">
-            <div class="card-body pb-2">
-              <div
-                class="card-header mb-3 bg-secondary"
-                style="margin: -16px -16px 0 -16px"
-              >
-                <h5
-                  class="card-title mb-0"
-                  style="padding-top: 4px; padding-bottom: 4px; color: white"
-                >
-                  Card title
-                </h5>
-              </div>
-              <p class="card-text">
-                This card has supporting text below as a natural lead-in to
-                additional content.
-              </p>
-            </div>
-
-            <svg
-              style="width: calc(100% - 16px)"
-              class="bd-placeholder-img card-img ms-2 me-2 mt-2"
-              width="100%"
-              height="200"
-              xmlns="http://www.w3.org/2000/svg"
-              role="img"
-              aria-label="Placeholder: Image cap"
-              preserveAspectRatio="xMidYMid slice"
-              focusable="false"
-            >
-              <title>Placeholder</title>
-              <rect width="100%" height="100%" fill="#868e96"></rect>
-              <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
-            </svg>
-
-            <div
-              class="list-group mx-0 w-auto mb-1 mt-1"
-              style="border-top: none; border-bottom: none"
-            >
-              <label class="list-group-item d-flex gap-2" style="border: none">
-                <input
-                  class="form-check-input flex-shrink-0"
-                  type="checkbox"
-                  value=""
-                  checked=""
-                />
-                <span>
-                  <small class="d-block text-muted"
-                    >With support text underneath to add more detail</small
-                  >
-                </span>
-              </label>
-              <div class="d-flex justify-content-center">
-                <hr class="mb-0 mt-0" style="opacity: 0.075; width: 66%" />
-              </div>
-              <label class="list-group-item d-flex gap-2" style="border: none">
-                <input
-                  class="form-check-input flex-shrink-0"
-                  type="checkbox"
-                  value=""
-                />
-                <span>
-                  <small class="d-block">Some other text goes here</small>
-                </span>
-              </label>
-              <div class="d-flex justify-content-center">
-                <hr class="mb-0 mt-0" style="opacity: 0.075; width: 66%" />
-              </div>
-              <label class="list-group-item d-flex gap-2" style="border: none">
-                <input
-                  class="form-check-input flex-shrink-0"
-                  type="checkbox"
-                  value=""
-                />
-                <span>
-                  <small class="d-block"
-                    >And we end with another snippet of text Lorem ipsum dolor
-                    sit amet consectetur adipisicing elit. Cumque blanditiis ex
-                    tenetur et? Dicta labore quaerat ratione omnis quam
-                    provident.</small
-                  >
-                </span>
-              </label>
-              <div class="d-flex justify-content-center">
-                <hr class="mb-0 mt-0" style="opacity: 0.075; width: 66%" />
-              </div>
-              <label class="list-group-item d-flex gap-2" style="border: none">
-                <input
-                  class="form-check-input flex-shrink-0"
-                  type="checkbox"
-                  value=""
-                />
-                <span>
-                  <small class="d-block"
-                    >And we end with another snippet of text</small
-                  >
-                </span>
-              </label>
-              <div class="d-flex justify-content-center">
-                <hr class="mb-0 mt-0" style="opacity: 0.075; width: 66%" />
-              </div>
-              <label class="list-group-item d-flex gap-2" style="border: none">
-                <input
-                  class="form-check-input flex-shrink-0"
-                  type="checkbox"
-                  value=""
-                />
-                <span>
-                  <small class="d-block"
-                    >And we end with another snippet of text</small
-                  >
-                </span>
-              </label>
-            </div>
-            <p
-              class="card-text pb-2 pe-3"
-              style="align-self: end; opacity: 70%"
-            >
-              <small class="text-muted">Last updated 3 mins ago</small>
-            </p>
-          </div>
-        </div>
-        <div class="col-sm-6 col-lg-4 mb-4">
-          <div class="card">
-            <div class="card-body pb-2">
-              <div
-                class="card-header mb-3 bg-success"
-                style="margin: -16px -16px 0 -16px"
-              >
-                <h5
-                  class="card-title mb-0"
-                  style="padding-top: 4px; padding-bottom: 4px; color: white"
-                >
-                  Card title
-                </h5>
-              </div>
-              <p class="card-text">
-                This card has supporting text below as a natural lead-in to
-                additional content.
-              </p>
-            </div>
-
-            <svg
-              style="width: calc(100% - 16px)"
-              class="bd-placeholder-img card-img ms-2 me-2 mt-2"
-              width="100%"
-              height="200"
-              xmlns="http://www.w3.org/2000/svg"
-              role="img"
-              aria-label="Placeholder: Image cap"
-              preserveAspectRatio="xMidYMid slice"
-              focusable="false"
-            >
-              <title>Placeholder</title>
-              <rect width="100%" height="100%" fill="#868e96"></rect>
-              <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
-            </svg>
-
-            <div
-              class="list-group mx-0 w-auto mb-1 mt-1"
-              style="border-top: none; border-bottom: 0"
-            >
-              <label class="list-group-item d-flex gap-2" style="border: none">
-                <input
-                  class="form-check-input flex-shrink-0"
-                  type="checkbox"
-                  value=""
-                  checked=""
-                />
-                <span>
-                  <small class="d-block text-muted"
-                    >With support text underneath to add more detail</small
-                  >
-                </span>
-              </label>
-              <div class="d-flex justify-content-center">
-                <hr class="mb-0 mt-0" style="opacity: 0.075; width: 66%" />
-              </div>
-              <label class="list-group-item d-flex gap-2" style="border: none">
-                <input
-                  class="form-check-input flex-shrink-0"
-                  type="checkbox"
-                  value=""
-                />
-                <span>
-                  <small class="d-block">Some other text goes here</small>
-                </span>
-              </label>
-              <div class="d-flex justify-content-center">
-                <hr class="mb-0 mt-0" style="opacity: 0.075; width: 66%" />
-              </div>
-              <label class="list-group-item d-flex gap-2" style="border: none">
-                <input
-                  class="form-check-input flex-shrink-0"
-                  type="checkbox"
-                  value=""
-                />
-                <span>
-                  <small class="d-block"
-                    >And we end with another snippet of text</small
-                  >
-                </span>
-              </label>
-            </div>
-            <p
-              class="card-text pb-2 pe-3"
-              style="align-self: end; opacity: 70%"
-            >
-              <small class="text-muted">Last updated 3 mins ago</small>
-            </p>
-          </div>
-        </div>
-        <div class="col-sm-6 col-lg-4 mb-4">
-          <div class="card">
-            <div class="card-body pb-2">
-              <div
-                class="card-header mb-3 bg-danger"
-                style="margin: -16px -16px 0 -16px"
-              >
-                <h5
-                  class="card-title mb-0"
-                  style="padding-top: 4px; padding-bottom: 4px; color: white"
-                >
-                  Card title
-                </h5>
-              </div>
-              <p class="card-text">
-                This card has supporting text below as a natural lead-in to
-                additional content.
-              </p>
-            </div>
-
-            <svg
-              style="width: calc(100% - 16px)"
-              class="bd-placeholder-img card-img ms-2 me-2 mt-2"
-              width="100%"
-              height="200"
-              xmlns="http://www.w3.org/2000/svg"
-              role="img"
-              aria-label="Placeholder: Image cap"
-              preserveAspectRatio="xMidYMid slice"
-              focusable="false"
-            >
-              <title>Placeholder</title>
-              <rect width="100%" height="100%" fill="#868e96"></rect>
-              <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
-            </svg>
-
-            <div
-              class="list-group mx-0 w-auto mb-1 mt-1"
-              style="border-top: none; border-bottom: 0"
-            >
-              <label class="list-group-item d-flex gap-2" style="border: none">
-                <input
-                  class="form-check-input flex-shrink-0"
-                  type="checkbox"
-                  value=""
-                  checked=""
-                />
-                <span>
-                  <small class="d-block text-muted"
-                    >With support text underneath to add more detail</small
-                  >
-                </span>
-              </label>
-              <div class="d-flex justify-content-center">
-                <hr class="mb-0 mt-0" style="opacity: 0.075; width: 66%" />
-              </div>
-              <label class="list-group-item d-flex gap-2" style="border: none">
-                <input
-                  class="form-check-input flex-shrink-0"
-                  type="checkbox"
-                  value=""
-                />
-                <span>
-                  <small class="d-block">Some other text goes here</small>
-                </span>
-              </label>
-              <div class="d-flex justify-content-center">
-                <hr class="mb-0 mt-0" style="opacity: 0.075; width: 66%" />
-              </div>
-              <label class="list-group-item d-flex gap-2" style="border: none">
-                <input
-                  class="form-check-input flex-shrink-0"
-                  type="checkbox"
-                  value=""
-                />
-                <span>
-                  <small class="d-block"
-                    >And we end with another snippet of text Lorem ipsum dolor
-                    sit amet consectetur adipisicing elit. Cumque blanditiis ex
-                    tenetur et? Dicta labore quaerat ratione omnis quam
-                    provident.</small
-                  >
-                </span>
-              </label>
-              <div class="d-flex justify-content-center">
-                <hr class="mb-0 mt-0" style="opacity: 0.075; width: 66%" />
-              </div>
-              <label class="list-group-item d-flex gap-2" style="border: none">
-                <input
-                  class="form-check-input flex-shrink-0"
-                  type="checkbox"
-                  value=""
-                />
-                <span>
-                  <small class="d-block"
-                    >And we end with another snippet of text</small
-                  >
-                </span>
-              </label>
-            </div>
-            <p
-              class="card-text pb-2 pe-3"
-              style="align-self: end; opacity: 70%"
-            >
-              <small class="text-muted">Last updated 3 mins ago</small>
-            </p>
-          </div>
-        </div>
-        <div class="col-sm-6 col-lg-4 mb-4">
-          <div class="card">
-            <div class="card-body pb-2">
-              <div
-                class="card-header mb-3 bg-warning"
-                style="margin: -16px -16px 0 -16px"
-              >
-                <h5
-                  class="card-title mb-0"
-                  style="padding-top: 4px; padding-bottom: 4px; color: white"
-                >
-                  Card title
-                </h5>
-              </div>
-              <p class="card-text">
-                This card has supporting text below as a natural lead-in to
-                additional content.
-              </p>
-            </div>
-
-            <svg
-              style="width: calc(100% - 16px)"
-              class="bd-placeholder-img card-img ms-2 me-2 mt-2"
-              width="100%"
-              height="200"
-              xmlns="http://www.w3.org/2000/svg"
-              role="img"
-              aria-label="Placeholder: Image cap"
-              preserveAspectRatio="xMidYMid slice"
-              focusable="false"
-            >
-              <title>Placeholder</title>
-              <rect width="100%" height="100%" fill="#868e96"></rect>
-              <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
-            </svg>
-
-            <div
-              class="list-group mx-0 w-auto mb-1 mt-1"
-              style="border-top: none; border-bottom: 0"
-            >
-              <label class="list-group-item d-flex gap-2" style="border: none">
-                <input
-                  class="form-check-input flex-shrink-0"
-                  type="checkbox"
-                  value=""
-                  checked=""
-                />
-                <span>
-                  <small class="d-block text-muted"
-                    >With support text underneath to add more detail</small
-                  >
-                </span>
-              </label>
-              <div class="d-flex justify-content-center">
-                <hr class="mb-0 mt-0" style="opacity: 0.075; width: 66%" />
-              </div>
-              <label class="list-group-item d-flex gap-2" style="border: none">
-                <input
-                  class="form-check-input flex-shrink-0"
-                  type="checkbox"
-                  value=""
-                />
-                <span>
-                  <small class="d-block">Some other text goes here</small>
-                </span>
-              </label>
-              <div class="d-flex justify-content-center">
-                <hr class="mb-0 mt-0" style="opacity: 0.075; width: 66%" />
-              </div>
-              <label class="list-group-item d-flex gap-2" style="border: none">
-                <input
-                  class="form-check-input flex-shrink-0"
-                  type="checkbox"
-                  value=""
-                />
-                <span>
-                  <small class="d-block"
-                    >And we end with another snippet of text</small
-                  >
-                </span>
-              </label>
-            </div>
-            <p
-              class="card-text pb-2 pe-3"
-              style="align-self: end; opacity: 70%"
-            >
-              <small class="text-muted">Last updated 3 mins ago</small>
-            </p>
-          </div>
-        </div>
-        <div class="col-sm-6 col-lg-4 mb-4">
-          <div class="card">
-            <div class="card-body pb-2">
-              <div
-                class="card-header mb-3 bg-info"
-                style="margin: -16px -16px 0 -16px"
-              >
-                <h5
-                  class="card-title mb-0"
-                  style="padding-top: 4px; padding-bottom: 4px; color: white"
-                >
-                  Card title
-                </h5>
-              </div>
-              <p class="card-text">
-                This card has supporting text below as a natural lead-in to
-                additional content.
-              </p>
-            </div>
-            <div
-              class="list-group mx-0 w-auto mb-1 mt-1"
-              style="border-top: none; border-bottom: 0"
-            >
-              <label class="list-group-item d-flex gap-2" style="border: none">
-                <input
-                  class="form-check-input flex-shrink-0"
-                  type="checkbox"
-                  value=""
-                  checked=""
-                />
-                <span>
-                  <small class="d-block text-muted"
-                    >With support text underneath to add more detail</small
-                  >
-                </span>
-              </label>
-              <div class="d-flex justify-content-center">
-                <hr class="mb-0 mt-0" style="opacity: 0.075; width: 66%" />
-              </div>
-              <label class="list-group-item d-flex gap-2" style="border: none">
-                <input
-                  class="form-check-input flex-shrink-0"
-                  type="checkbox"
-                  value=""
-                />
-                <span>
-                  <small class="d-block">Some other text goes here</small>
-                </span>
-              </label>
-              <div class="d-flex justify-content-center">
-                <hr class="mb-0 mt-0" style="opacity: 0.075; width: 66%" />
-              </div>
-              <label class="list-group-item d-flex gap-2" style="border: none">
-                <input
-                  class="form-check-input flex-shrink-0"
-                  type="checkbox"
-                  value=""
-                />
-                <span>
-                  <small class="d-block"
-                    >And we end with another snippet of text</small
-                  >
-                </span>
-              </label>
-              <div class="d-flex justify-content-center">
-                <hr class="mb-0 mt-0" style="opacity: 0.075; width: 66%" />
-              </div>
-              <label class="list-group-item d-flex gap-2" style="border: none">
-                <input
-                  class="form-check-input flex-shrink-0"
-                  type="checkbox"
-                  value=""
-                />
-                <span>
-                  <small class="d-block"
-                    >And we end with another snippet of text</small
-                  >
-                </span>
-              </label>
-            </div>
-            <p
-              class="card-text pb-2 pe-3"
-              style="align-self: end; opacity: 70%"
-            >
-              <small class="text-muted">Last updated 3 mins ago</small>
-            </p>
-          </div>
-        </div> -->
     </div>
   </div>
 </main>

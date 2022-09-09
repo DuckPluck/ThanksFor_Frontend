@@ -23,7 +23,7 @@ export class MasontyDemoComponent implements OnInit {
 
   dummyPictures: [boolean, string][] = [
     [false, 'https://source.unsplash.com/433x649/?Uruguay'],
-    [false, 'https://source.unsplash.com/530x572/?Jamaica'],            /* нужно решить проблемы с совместимостью */
+    [false, 'https://source.unsplash.com/530x572/?Jamaica'],            
     [false, 'https://source.unsplash.com/531x430/?Kuwait'],
     [false, 'https://source.unsplash.com/586x1073/?Bermuda'],
     [false, 'https://source.unsplash.com/500x571/?Ecuador'],

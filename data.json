@@ -9,12 +9,12 @@
           "todos": [
             {
               "id": 0,
-              "text": "Sample todo 1",
+              "text": "Sample todo Sample todo Sample todo 1",
               "completed": false
             },
             {
               "id": 2,
-              "text": "Sample todo 2",
+              "text": "Sample todo Sample todo Sample todo 2",
               "completed": false
             }
           ],
@@ -26,7 +26,7 @@
           "todos": [
             {
               "id": 0,
-              "text": "Sample todo 1",
+              "text": "Sample todo Sample todo Sample todo Sample todo Sample todo Sample todo Sample todo 1",
               "completed": false
             }
           ],
@@ -38,13 +38,18 @@
           "todos": [
             {
               "id": 0,
-              "text": "Sample todo 1",
+              "text": "Sample todo Sample todo Sample todo Sample todo Sample todo Sample todo Sample todo 1",
               "completed": false
             },
             {
               "id": 2,
-              "text": "Sample todo 2",
+              "text": "Sample todo Sample todo Sample todo Sample todo Sample todo Sample todo Sample todo Sample todo Sample todo 2",
               "completed": false
+            },
+            {
+              "id": 3,
+              "text": "Sample todo Sample todo Sample todo 3",
+              "completed": true
             }
           ],
           "image": "https://st.depositphotos.com/1146092/2514/i/600/depositphotos_25143517-stock-photo-cool-dog.jpg"
@@ -55,7 +60,7 @@
           "todos": [
             {
               "id": 0,
-              "text": "Sample todo 1",
+              "text": "Sample todo Sample Sample todo Sample todo Sample todo Sample todo Sample todo Sample todo Sample todo todo Sample todo 1",
               "completed": false
             }
           ],
@@ -67,8 +72,23 @@
           "todos": [
             {
               "id": 0,
-              "text": "Sample todo 1",
+              "text": "Sample todo Sample todo Sample todo 1",
               "completed": false
+            },
+            {
+              "id": 2,
+              "text": "Sample todo Sample Sample todo todo Sample todo Sample todo Sample todo Sample todo 2",
+              "completed": false
+            },
+            {
+              "id": 3,
+              "text": "Sample todo Sample Sample todo Sample todo Sample todo Sample todo Sample todo Sample todo todo Sample todo 3",
+              "completed": false
+            },
+            {
+              "id": 4,
+              "text": "Sample todo Sample todo Sample todo Sample todo Sample todo 4",
+              "completed": true
             }
           ],
           "image": "https://thumbs.dreamstime.com/b/swag-%D0%B2-%D0%B2%D0%BE%D0%B7%D0%B4%D1%83%D1%85%D0%B5-%D0%BF%D0%BE%D1%80%D1%82%D1%80%D0%B5%D1%82-%D0%BA%D1%80%D0%B0%D1%81%D0%B8%D0%B2%D0%BE%D0%B3%D0%BE-%D0%B8-%D1%81%D1%82%D0%B8%D0%BB%D1%8C%D0%BD%D0%BE%D0%B3%D0%BE-%D0%BA%D1%80%D1%83%D1%82%D0%BE%D0%B3%D0%BE-%D0%B0%D1%84%D1%80%D0%BE-%D0%B0%D0%BC%D0%B5%D1%80%D0%B8%D0%BA%D0%B0%D0%BD%D1%81%D0%BA%D0%BE%D0%B3%D0%BE-149465781.jpg"
@@ -84,16 +104,16 @@
           "todos": [
             {
               "id": 0,
-              "text": "Sample todo 1",
+              "text": "Sample todo Sample todo Sample todo 1",
               "completed": false
             },
             {
               "id": 1,
-              "text": "Sample todo 2",
+              "text": "Sample todo Sample todo Sample todo 2",
               "completed": false
             }
           ],
-          "image": "http://127.0.0.1:8080/media/Ariana_Grande_Grammys_Red_Carpet_2020.png"
+          "image": "https://st.depositphotos.com/1146092/2514/i/600/depositphotos_25143517-stock-photo-cool-dog.jpg"
         },
         {
           "id": 1,
@@ -101,11 +121,11 @@
           "todos": [
             {
               "id": 0,
-              "text": "Sample todo 1",
+              "text": "Sample todo Sample todo Sample todo 1",
               "completed": false
             }
           ],
-          "image": "http://127.0.0.1:8080/media/194987397_1142815772810138_3011566722434931460_n.png"
+          "image": "https://thumbs.dreamstime.com/b/swag-%D0%B2-%D0%B2%D0%BE%D0%B7%D0%B4%D1%83%D1%85%D0%B5-%D0%BF%D0%BE%D1%80%D1%82%D1%80%D0%B5%D1%82-%D0%BA%D1%80%D0%B0%D1%81%D0%B8%D0%B2%D0%BE%D0%B3%D0%BE-%D0%B8-%D1%81%D1%82%D0%B8%D0%BB%D1%8C%D0%BD%D0%BE%D0%B3%D0%BE-%D0%BA%D1%80%D1%83%D1%82%D0%BE%D0%B3%D0%BE-%D0%B0%D1%84%D1%80%D0%BE-%D0%B0%D0%BC%D0%B5%D1%80%D0%B8%D0%BA%D0%B0%D0%BD%D1%81%D0%BA%D0%BE%D0%B3%D0%BE-149465781.jpg"
         }
       ]
     }
